@@ -517,8 +517,8 @@ def translate_instruction(instruction):
 
 
 def main():
-	instructions = read_file("instructions.txt")
-	create_file("instruction.mif")
+	instructions = read_file("verif/instructions.txt")
+	create_file("verif/instruction.mif")
 
 	for i, instruction in enumerate(instructions):
 		binary = translate_instruction(instruction)
@@ -529,14 +529,14 @@ def main():
 			chunks = chunks[::-1]
 			for j, chunk in enumerate(chunks):
 				index = f"{i * 4 + j:03d}"
-				write_instruction("instruction.mif", index, chunk, instruction)
+				write_instruction("verif/instruction.mif", index, chunk, instruction)
 		else:
 			line = i + 1
 			print(f"Translation failed on line {line}.\n")
-			os.remove("instruction.mif")
+			os.remove("verif/instruction.mif")
 			exit(2)
 
-	end_file("instruction.mif")
+	end_file("verif/instruction.mif")
 	print("Assembly to machine code translation complete.\n")
 
 
