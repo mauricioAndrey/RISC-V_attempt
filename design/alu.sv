@@ -23,7 +23,9 @@ module alu#(
                 ALUResult = $signed(SrcA) + $signed(SrcB);
             4'b0011: // SUB
                 ALUResult = $signed(SrcA) - $signed(SrcB);
-                // xor
+            4'b0100: // XOR
+                ALUResult = SrcA ^ SrcB;
+                    
                 // shifts left e right lógicos e aritméticos
                 // maior que, menor que
                 // diferente
