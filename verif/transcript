@@ -1,11 +1,29 @@
 do runtb_top
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:21:40 on Jul 19,2024
+# Start time: 16:19:02 on Jul 19,2024
 # vlog -reportprogress 300 -f compile_verilog 
-# ** Error: (vlib-7) Failed to open design unit file "/design/adder.sv" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 15:21:40 on Jul 19,2024, Elapsed time: 0:00:00
+# -- Compiling module adder
+# -- Compiling module ramOnChip32
+# -- Compiling module ramOnChipData
+# -- Compiling module Memoria32
+# -- Compiling module Memoria32Data
+# -- Compiling package Pipe_Buf_Reg_PKG
+# -- Compiling module RegFile
+# -- Compiling module alu
+# ** Error: (vlog-13069) ./../design/alu.sv(25): near "ALUResult": syntax error, unexpected IDENTIFIER, expecting ':'.
+# -- Compiling module ALUController
+# -- Compiling module BranchUnit
+# -- Compiling module Controller
+# -- Compiling module flopr
+# -- Compiling module ForwardingUnit
+# -- Compiling module HazardDetection
+# -- Compiling module imm_Gen
+# -- Compiling module mux2
+# -- Compiling module mux4
+# -- Compiling module datamemory
+# -- Compiling module instructionmemory
+# End time: 16:19:02 on Jul 19,2024, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
 # Error in macro ./runtb_top line 4
@@ -13,50 +31,162 @@ do runtb_top
 #     while executing
 # "vlog -f compile_verilog"
 do runtb_top
+# ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:01:25 on Jul 19,2024
+# Start time: 16:24:09 on Jul 19,2024
 # vlog -reportprogress 300 -f compile_verilog 
-# init_dbinfo() DATABASE ERROR: (sqlite3_open D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/work_IH/_lib.qdb): unable to open database file
-# mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
-# ** Fatal: (vlog-9) Problem while writing internal20180930A file "D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/work_IH/_temp/vlogm9tc2h".
-# ./../design/adder.sv(3): Verilog Compiler exiting
-# End time: 16:01:25 on Jul 19,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runtb_top line 4
-# C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog -f compile_verilog"
-do runtb_top
-# ** Warning: (vlib-34) Library already exists at "work_IH".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:01:55 on Jul 19,2024
-# vlog -reportprogress 300 -f compile_verilog 
-# init_dbinfo() DATABASE ERROR: (sqlite3_open D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/work_IH/_lib.qdb): unable to open database file
-# mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
-# ** Fatal: (vlog-9) Problem while writing internal20180930A file "D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/work_IH/_temp/vlogrrv664".
-# ./../design/adder.sv(3): Verilog Compiler exiting
-# End time: 16:01:55 on Jul 19,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runtb_top line 4
-# C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog -f compile_verilog"
-project open {D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/riscV_IH}
-do runtb_top
-# ** Warning: (vlib-34) Library already exists at "work_IH".
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:18 on Jul 19,2024
-# vlog -reportprogress 300 -f compile_verilog 
-# init_dbinfo() DATABASE ERROR: (sqlite3_open D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/work_IH/_lib.qdb): unable to open database file
-# mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
-# ** Fatal: (vlog-9) Problem while writing internal20180930A file "D:/Users/mfss2/Desktop/Período 03/IH/projeto/RISC-V_attempt/verif/work_IH/_temp/vlog20ks1r".
-# ./../design/adder.sv(3): Verilog Compiler exiting
-# End time: 16:10:18 on Jul 19,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./runtb_top line 4
-# C:/InstallModelSim/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog -f compile_verilog"
+# -- Compiling module adder
+# -- Compiling module ramOnChip32
+# -- Compiling module ramOnChipData
+# -- Compiling module Memoria32
+# -- Compiling module Memoria32Data
+# -- Compiling package Pipe_Buf_Reg_PKG
+# -- Compiling module RegFile
+# -- Compiling module alu
+# -- Compiling module ALUController
+# -- Compiling module BranchUnit
+# -- Compiling module Controller
+# -- Compiling module flopr
+# -- Compiling module ForwardingUnit
+# -- Compiling module HazardDetection
+# -- Compiling module imm_Gen
+# -- Compiling module mux2
+# -- Compiling module mux4
+# -- Compiling module datamemory
+# -- Compiling module instructionmemory
+# -- Compiling package Datapath_sv_unit
+# -- Importing package Pipe_Buf_Reg_PKG
+# -- Compiling module Datapath
+# -- Compiling module riscv
+# -- Compiling module tb_top
+# 
+# Top level modules:
+# 	tb_top
+# End time: 16:24:09 on Jul 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui -L altera_mf_ver work.tb_top 
+# Start time: 16:24:09 on Jul 19,2024
+# Loading sv_std.std
+# Loading work.tb_top
+# Loading work.riscv
+# Loading work.Controller
+# Loading work.ALUController
+# Loading work.Pipe_Buf_Reg_PKG
+# Loading work.Datapath_sv_unit
+# Loading work.Datapath
+# Loading work.adder
+# Loading work.mux2
+# Loading work.flopr
+# Loading work.instructionmemory
+# Loading work.Memoria32
+# Loading work.ramOnChip32
+# Loading altera_mf_ver.altsyncram
+# Loading work.HazardDetection
+# Loading work.RegFile
+# Loading work.imm_Gen
+# Loading work.ForwardingUnit
+# Loading work.mux4
+# Loading work.alu
+# Loading work.BranchUnit
+# Loading work.datamemory
+# Loading work.Memoria32Data
+# Loading work.ramOnChipData
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# hexadecimal
+# unsigned
+# hexadecimal
+# unsigned
+# unsigned
+# unsigned
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# hexadecimal
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.instr_mem.meminst.memBlock0.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.instr_mem.meminst.memBlock1.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.instr_mem.meminst.memBlock2.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.instr_mem.meminst.memBlock3.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.data_mem.mem32.memBlock0.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.data_mem.mem32.memBlock1.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.data_mem.mem32.memBlock2.altsyncram_component.m_default.altsyncram_inst
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: tb_top.riscV.dp.data_mem.mem32.memBlock3.altsyncram_component.m_default.altsyncram_inst
+#                   45: Memory [  0] read with value: [00000002] | [          2]
+# 
+#                   55: Register [ 4] written with value: [00000002] | [          2]
+# 
+#                   75: Register [ 5] written with value: [00000000] | [          0]
+# 
+#                   75: Memory [  4] written with value: [00000000] | [          0]
+# 
+#                   85: Memory [  4] read with value: [00000000] | [          0]
+# 
+#                   95: Register [ 6] written with value: [00000000] | [          0]
+# 
+#                   95: Memory [  4] read with value: [00000000] | [          0]
+# 
+#                  105: Register [ 8] written with value: [00000000] | [          0]
+# 
+#                  115: Register [ 7] written with value: [00000004] | [          4]
+# 
+#                  125: Register [ 7] written with value: [00000006] | [          6]
+# 
+#                  165: Register [ 7] written with value: [00000008] | [          8]
+# 
+#                  205: Register [ 7] written with value: [0000000a] | [         10]
+# 
+#                  245: Register [ 7] written with value: [0000000c] | [         12]
+# 
+#                  285: Register [ 7] written with value: [0000000e] | [         14]
+# 
+#                  325: Register [ 7] written with value: [00000010] | [         16]
+# 
+#                  365: Register [ 7] written with value: [00000012] | [         18]
+# 
+#                  405: Register [ 7] written with value: [00000014] | [         20]
+# 
+#                  445: Register [ 7] written with value: [00000016] | [         22]
+# 
+#                  485: Register [ 7] written with value: [00000018] | [         24]
+# 
+# ** Note: $stop    : ./tb_top.sv(44)
+#    Time: 510 ns  Iteration: 0  Instance: /tb_top
+# Break in Module tb_top at ./tb_top.sv line 44
