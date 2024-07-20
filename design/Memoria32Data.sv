@@ -22,7 +22,7 @@
 --		This code may be used for educational and non-educational purposes as 
 --		long as its copyright notice remains unchanged. 
 ------------------------------------------------------------------------------*/
-
+ 
 module Memoria32Data (
     input wire [31:0] raddress,
     input wire [31:0] waddress,

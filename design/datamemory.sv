@@ -36,12 +36,32 @@ module datamemory #(
 
     if (MemRead) begin
       case (Funct3)
+        3'b000: begin// LB
+          if (Dataout[31] == 1) rd <= -1;
+          else rd <= 0;
+          rd[7:0] <= Dataout[7:0];
+        end
+        3'b001: begin// LH
+          if (Dataout[31] == 1) rd <= -1;
+          else rd <= 0;
+          rd[15:0] <= Dataout[15:0];
+        end
         3'b010:  //LW
-        rd <= Dataout;
+          rd <= Dataout;
+        3'b100: // LBU
+          rd <= Dataout[7:0];
         default: rd <= Dataout;
       endcase
     end else if (MemWrite) begin
       case (Funct3)
+        3'b000: begin  //SB
+          Wr <= 4'b0001;
+          Datain <= wd;
+        end
+        3'b001: begin  //SH
+          Wr <= 4'b0011;
+          Datain <= wd;
+        end
         3'b010: begin  //SW
           Wr <= 4'b1111;
           Datain <= wd;
