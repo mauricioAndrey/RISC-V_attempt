@@ -54,7 +54,7 @@ module datamemory #(
       endcase
     end else if (MemWrite) begin
       case (Funct3)
-        3'b000: begin  //SB
+        3'b000: begin  //SB n tá funcionando essa meeerrrrddaaaaa
           Wr <= 4'b0001;
           Datain <= wd;
         end
