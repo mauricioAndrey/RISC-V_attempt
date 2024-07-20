@@ -31,13 +31,14 @@ module alu#(
                 ALUResult = $signed(SrcA) >>> SrcB[4:0];
             4'b0111: // SLLI
                 ALUResult = SrcA << SrcB[4:0];
-            4'b1000: // SLT e SLTI
+            4'b1000: // BLT, SLT e SLTI
                 ALUResult = (SrcA < SrcB) ? 1 : 0;
             4'b1001: // BEQ
                 ALUResult = (SrcA == SrcB) ? 1 : 0;
-            //4'b1010:
-            
-            //4'b1011:
+            4'b1010: // BNE
+                ALUResult = (SrcA != SrcB) ? 1 : 0;
+            4'b1011: // BGE
+                ALUResult = (SrcA >= SrcB) ? 1 : 0;
 
             //4'b1100:
             

@@ -11,7 +11,7 @@ cModel Technology
 Z0 dD:/Users/mfss2/Desktop/ProjetoIH/RISC-V_attempt/verif
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1721434262
+Z2 !s110 1721495268
 !i10b 1
 !s100 J@Bf42a<9Q9R;nJSZl2>B2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1721434261.000000
+Z8 !s108 1721495268.000000
 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
 Z9 !s90 -reportprogress|300|-f|compile_verilog|
 !i113 1
@@ -37,23 +37,23 @@ valu
 R1
 R2
 !i10b 1
-!s100 :ogMV6BS@[oJ^Q@R`bCDf2
+!s100 XNj;3@XX?PgN>emVm_eIe0
 R3
-I@0UF5b85?l9nznih;MR=g2
+IYZIOP`QZHWFd:5_@ajTh03
 R4
 S1
 R0
-w1721434193
+w1721495123
 8./../design/alu.sv
 F./../design/alu.sv
 !i122 0
-Z11 L0 3 55
+L0 3 56
 R7
 r1
 !s85 0
 31
 R8
-Z12 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
+Z11 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
 R9
 !i113 1
 R10
@@ -61,23 +61,23 @@ vALUController
 R1
 R2
 !i10b 1
-!s100 gKLl;BCBf0fS3^?VSK:Jb3
+!s100 7g@S^5UclcX?kMmzlU:j00
 R3
-IU`R>C>j<>nIB6QXgbSUYC1
+I50XJGVFaLTjAd2RjoKMkl1
 R4
 S1
 R0
-w1721434072
+w1721495167
 8./../design/ALUController.sv
 F./../design/ALUController.sv
 !i122 0
-L0 3 29
+Z12 L0 3 35
 R7
 r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -102,7 +102,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -117,7 +117,7 @@ ILRRS9fkR`Ih:4Db_Z_YjT1
 R4
 S1
 R0
-R5
+w1721492258
 8./../design/Controller.sv
 F./../design/Controller.sv
 !i122 0
@@ -127,7 +127,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -146,13 +146,13 @@ R5
 8./../design/datamemory.sv
 F./../design/datamemory.sv
 !i122 0
-R11
+L0 3 55
 R7
 r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -178,7 +178,7 @@ L0 5 312
 R7
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -204,7 +204,7 @@ L0 3 0
 R7
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -229,7 +229,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -253,7 +253,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -278,7 +278,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -303,7 +303,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -328,7 +328,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -352,7 +352,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -377,7 +377,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -402,7 +402,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -426,7 +426,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -450,7 +450,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -473,7 +473,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -496,7 +496,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -515,13 +515,13 @@ R5
 8./../design/RegFile.sv
 F./../design/RegFile.sv
 !i122 0
-L0 3 35
+R12
 R7
 r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -546,7 +546,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
@@ -570,7 +570,7 @@ r1
 !s85 0
 31
 R8
-R12
+R11
 R9
 !i113 1
 R10
