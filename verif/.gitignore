@@ -1,8 +1,6 @@
 #pastas 
-work/
+work
 #arquivos 
-data.ver
-instruction.ver
-riscV.mpf
+riscV
 transcript
-vsim.wlf
+vsim
