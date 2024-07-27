@@ -20,6 +20,10 @@ module Datapath #(
     Branch,  // Branch Enable
     input  logic [          1:0] ALUOp,
     input  logic [ALU_CC_W -1:0] ALU_CC,         // ALU Control Code ( input of the ALU )
+    
+    input logic JalrSel, 
+    input logic [1:0] RWSel,
+    
     output logic [          6:0] opcode,
     output logic [          6:0] Funct7,
     output logic [          2:0] Funct3,
@@ -150,6 +154,11 @@ module Datapath #(
       B.ImmG <= 0;
       B.func3 <= 0;
       B.func7 <= 0;
+
+      // reseta os seletores dos jumps
+      B.JalrSel <= 0;
+      B.RWSel <= 0;
+
       B.Curr_Instr <= A.Curr_Instr;  //debug tmp
     end else begin
       B.ALUSrc <= ALUsrc;
@@ -169,6 +178,10 @@ module Datapath #(
       B.func3 <= A.Curr_Instr[14:12];
       B.func7 <= A.Curr_Instr[31:25];
       B.Curr_Instr <= A.Curr_Instr;  //debug tmp
+
+      // output do controle
+      B.JalrSel <= JalrSel;
+      B.RWSel <= RWSel; 
     end
   end
 
@@ -222,6 +235,7 @@ module Datapath #(
       B.ImmG,
       B.Branch,
       ALUResult,
+      JalrSel,
       BrImm,
       Old_PC_Four,
       BrPC,
@@ -244,13 +258,14 @@ module Datapath #(
       C.rd <= 0;
       C.func3 <= 0;
       C.func7 <= 0;
+      C.RWSel <= 0;
     end else begin
       C.RegWrite <= B.RegWrite;
       C.MemtoReg <= B.MemtoReg;
       C.MemRead <= B.MemRead;
       C.MemWrite <= B.MemWrite;
-      C.Pc_Imm <= BrImm;
-      C.Pc_Four <= Old_PC_Four;
+      C.Pc_Imm <= BrImm; // PC + IMM
+      C.Pc_Four <= Old_PC_Four; // PC + 4
       C.Imm_Out <= B.ImmG;
       C.Alu_Result <= ALUResult;
       C.RD_Two <= FBmux_Result;
@@ -258,6 +273,8 @@ module Datapath #(
       C.func3 <= B.func3;
       C.func7 <= B.func7;
       C.Curr_Instr <= B.Curr_Instr;  // debug tmp
+      // C.JalrSel <= B.JalrSel;
+      C.RWSel <= B.RWSel;
     end
   end
 
@@ -290,27 +307,40 @@ module Datapath #(
       D.Alu_Result <= 0;
       D.MemReadData <= 0;
       D.rd <= 0;
+      D.RWSel <= 0;
     end else begin
       D.RegWrite <= C.RegWrite;
       D.MemtoReg <= C.MemtoReg;
-      D.Pc_Imm <= C.Pc_Imm;
-      D.Pc_Four <= C.Pc_Four;
+      D.Pc_Imm <= C.Pc_Imm; // PC + IMM
+      D.Pc_Four <= C.Pc_Four; // PC + 4
       D.Imm_Out <= C.Imm_Out;
       D.Alu_Result <= C.Alu_Result;
       D.MemReadData <= ReadData;
       D.rd <= C.rd;
       D.Curr_Instr <= C.Curr_Instr;  //Debug Tmp
+      D.RWSel <= C.RWSel;
     end
   end
 
   //--// The LAST Block
   mux2 #(32) resmux (
-      D.Alu_Result,
-      D.MemReadData,
-      D.MemtoReg,
-      WrmuxSrc
+      D.Alu_Result, // 0
+      D.MemReadData, // 1
+      D.MemtoReg, // seletor
+      WrmuxSrc // output
   );
 
-  assign WB_Data = WrmuxSrc;
+  mux4 #(32) wrsmux (
+      WrmuxSrc, // 00 (output do mux anterior)
+      D.PC_Four,  // 01 (PC + 4)
+      D.Imm_Out,  // 10 (Imm_out)
+      D.PC_Imm,   // 11 (PC + Imm) 
+      RWSel,
+      WB_Data  // output desse mux
+  );
+
+ // assign WB_Data = WrmuxSrc; 
+
+ 
 
 endmodule
