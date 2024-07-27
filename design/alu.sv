@@ -45,11 +45,8 @@ module alu#(
             
             //4'b1110:
             
-            //4'b1111:
-                    
-                // maior que, menor que
-                // diferente
-
+            4'b1111: // usado no JAL para setar corretamentente o Branch_Sel na BranchUnit
+                ALU_Result = 1;
             default:
                 ALUResult = 0;
             endcase
