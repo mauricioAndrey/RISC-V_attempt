@@ -21,7 +21,7 @@ module Controller (
     output logic [1:0] RWSel
 );
 
-  logic [6:0] R_TYPE, I_TYPE_IMM, LW, SW, BR, JAL, JALR, HALT;
+  logic [6:0] R_TYPE, I_TYPE_IMM, LW, SW, BR, JAL, JALR, HALT, LUI;
 
   // atribuição dos opcodes
   assign R_TYPE = 7'b0110011;  //add,and
@@ -29,6 +29,7 @@ module Controller (
   assign LW = 7'b0000011;  //lw, lh, lb, lbu
   assign SW = 7'b0100011;  //sw, sh, sb
   assign BR = 7'b1100011;  //beq, bne, blt
+  assign LUI = 7'b0110111; // lui
   assign JAL = 7'b1101111; // jal (j-type)
   assign JALR = 7'b1100111; // jalr (i-type)
   assign HALT = 7'b1111111; // halt (halt-type -> não existe)
@@ -36,14 +37,14 @@ module Controller (
                                                                         // não vai usar a ALU pra a soma (vai usar um adder só)
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE_IMM /*|| Opcode == JAL */|| Opcode == JALR);
   assign MemtoReg = (Opcode == LW);
-  assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == I_TYPE_IMM || Opcode == JAL || Opcode == JALR);
+  assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == I_TYPE_IMM || Opcode == JAL || Opcode == JALR || Opcode == LUI);
   assign MemRead = (Opcode == LW);
   assign MemWrite = (Opcode == SW); 
-  assign ALUOp[0] = (Opcode == BR || Opcode == JAL/* || Opcode == JALR*/);
-  assign ALUOp[1] = (Opcode == R_TYPE || Opcode == I_TYPE_IMM || Opcode == JAL /*|| Opcode == JALR*/);
+  assign ALUOp[0] = (Opcode == BR || Opcode == JAL || Opcode == LUI /* || Opcode == JALR*/);
+  assign ALUOp[1] = (Opcode == R_TYPE || Opcode == I_TYPE_IMM || Opcode == JAL || Opcode == LUI /*|| Opcode == JALR*/);
   assign Branch = (Opcode == BR || Opcode == JAL /*|| Opcode == JALR*/);
   /* assign JalrSel = */
   assign RWSel[0] = (Opcode == JAL); // guarda o valor do PC+4 no reg 
-  assign RWSel[1] = 0; // dps mudar isso 
+  assign RWSel[1] = (Opcode == LUI); // dps mudar isso 
 
 endmodule

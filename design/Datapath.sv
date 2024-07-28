@@ -55,6 +55,7 @@ module Datapath #(
   logic [DATA_W-1:0] FAmux_Result;
   logic [DATA_W-1:0] FBmux_Result;
   logic Reg_Stall;  //1: PC fetch same, Register not update
+  
 
   if_id_reg A;
   id_ex_reg B;
@@ -335,7 +336,7 @@ module Datapath #(
       D.Pc_Four,  // 01 (PC + 4)
       D.Imm_Out,  // 10 (Imm_out)
       D.Pc_Imm,   // 11 (PC + Imm) 
-      RWSel,
+      D.RWSel,
       WB_Data  // output desse mux
   );
 

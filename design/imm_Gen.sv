@@ -37,6 +37,12 @@ module imm_Gen (
         1'b0
       };
 
+      7'b0110111:
+      Imm_out = { 
+        inst_code[31:12],
+        12'b0
+      };
+      
       default: Imm_out = {32'b0};
 
     endcase
