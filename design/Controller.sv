@@ -18,7 +18,7 @@ module Controller (
     output logic [1:0] ALUOp,  //00: LW/SW; 01:Branch; 10: Rtype
     output logic Branch,  //0: branch is not taken; 1: branch is taken
     output logic JalrSel,
-    output logic [1:0] RWSel,
+    output logic [1:0] RWSel
 );
 
   logic [6:0] R_TYPE, I_TYPE_IMM, LW, SW, BR, JAL, JALR, HALT;
@@ -43,7 +43,7 @@ module Controller (
   assign ALUOp[1] = (Opcode == R_TYPE || Opcode == I_TYPE_IMM || Opcode == JAL /*|| Opcode == JALR*/);
   assign Branch = (Opcode == BR || Opcode == JAL /*|| Opcode == JALR*/);
   /* assign JalrSel = */
-  assign RWSel[0] = (Opcode == JAL) // guarda o valor do PC+4 no reg 
+  assign RWSel[0] = (Opcode == JAL); // guarda o valor do PC+4 no reg 
   assign RWSel[1] = 0; // dps mudar isso 
 
 endmodule
