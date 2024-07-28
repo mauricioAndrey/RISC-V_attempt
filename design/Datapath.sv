@@ -332,9 +332,9 @@ module Datapath #(
 
   mux4 #(32) wrsmux (
       WrmuxSrc, // 00 (output do mux anterior)
-      D.PC_Four,  // 01 (PC + 4)
+      D.Pc_Four,  // 01 (PC + 4)
       D.Imm_Out,  // 10 (Imm_out)
-      D.PC_Imm,   // 11 (PC + Imm) 
+      D.Pc_Imm,   // 11 (PC + Imm) 
       RWSel,
       WB_Data  // output desse mux
   );
