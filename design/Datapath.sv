@@ -334,7 +334,7 @@ module Datapath #(
 
   mux4 #(32) wrsmux (
       WrmuxSrc, // 00 (output do mux anterior)
-      D.Pc_Four + 4,  // 01 (PC + 4) // Tecnicamente, só o D.Pc_Four resolveria, mas o nosso código é especial ent precisa do + 4 :D
+      D.Pc_Four,  // 01 (PC + 4) 
       D.Imm_Out,  // 10 (Imm_out)
       D.Pc_Imm,   // 11 (PC + Imm) 
       D.RWSel,
