@@ -56,6 +56,7 @@ module Datapath #(
   logic [DATA_W-1:0] FBmux_Result;
   logic Reg_Stall;  //1: PC fetch same, Register not update
   
+  logic [DATA_W-1:0] temp;
 
   if_id_reg A;
   id_ex_reg B;
@@ -120,13 +121,13 @@ module Datapath #(
       D.rd,
       A.Curr_Instr[19:15],
       A.Curr_Instr[24:20],
-      WrmuxSrc,
+      temp,
       Reg1,
       Reg2
   );
 
   assign reg_num = D.rd;
-  assign reg_data = WrmuxSrc;
+  assign reg_data = temp;
   assign reg_write_sig = D.RegWrite;
 
   // //sign extend
@@ -205,7 +206,7 @@ module Datapath #(
 
   mux4 #(32) FAmux (
       B.RD_One,
-      WrmuxSrc,
+      temp,
       C.Alu_Result,
       B.RD_One,
       FAmuxSel,
@@ -213,7 +214,7 @@ module Datapath #(
   );
   mux4 #(32) FBmux (
       B.RD_Two,
-      WrmuxSrc,
+      temp,
       C.Alu_Result,
       B.RD_Two,
       FBmuxSel,
@@ -333,14 +334,14 @@ module Datapath #(
 
   mux4 #(32) wrsmux (
       WrmuxSrc, // 00 (output do mux anterior)
-      D.Pc_Four,  // 01 (PC + 4)
+      D.Pc_Four + 4,  // 01 (PC + 4) // Tecnicamente, só o D.Pc_Four resolveria, mas o nosso código é especial ent precisa do + 4 :D
       D.Imm_Out,  // 10 (Imm_out)
       D.Pc_Imm,   // 11 (PC + Imm) 
       D.RWSel,
-      WB_Data  // output desse mux
+      temp  // output desse mux
   );
 
- // assign WB_Data = WrmuxSrc; 
+  assign WB_Data = temp; 
 
  
 

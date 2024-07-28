@@ -11,7 +11,7 @@ cModel Technology
 Z0 dD:/Users/mfss2/Desktop/ProjetoIH/RISC-V_attempt/verif
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1722188213
+Z2 !s110 1722191263
 !i10b 1
 !s100 J@Bf42a<9Q9R;nJSZl2>B2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1722188213.000000
+Z8 !s108 1722191263.000000
 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
 Z9 !s90 -reportprogress|300|-f|compile_verilog|
 !i113 1
@@ -159,22 +159,22 @@ R10
 vDatapath
 R1
 Z14 DXx4 work 16 Pipe_Buf_Reg_PKG 0 22 RU;hLjP]d_1D7e`>TGQ<A0
-DXx4 work 16 Datapath_sv_unit 0 22 Z?AXG6<2RZ4^6LJR8Q=`e1
+DXx4 work 16 Datapath_sv_unit 0 22 OhN^9?gP0[=fQaNcPb2DO0
 R2
 R4
 r1
 !s85 0
 !i10b 1
-!s100 4TT<__kTb=MFLM<[]_<]33
-I_cgDkgbFGfEUHnhMA4F6a3
+!s100 b5OdDFl1FAh5AC9k0H7?e2
+IgX1P[JCbS`D1hP8KH?B3g2
 !s105 Datapath_sv_unit
 S1
 R0
-Z15 w1722179880
+Z15 w1722191259
 Z16 8./../design/Datapath.sv
 Z17 F./../design/Datapath.sv
 !i122 0
-L0 5 343
+L0 5 344
 R7
 31
 R8
@@ -187,12 +187,12 @@ XDatapath_sv_unit
 R1
 R14
 R2
-VZ?AXG6<2RZ4^6LJR8Q=`e1
+VOhN^9?gP0[=fQaNcPb2DO0
 r1
 !s85 0
 !i10b 1
-!s100 T>jPKek=Pgb;1GUIl>I^D3
-IZ?AXG6<2RZ4^6LJR8Q=`e1
+!s100 B6m5]QI3[FXJ^<:F1Ak=;2
+IOhN^9?gP0[=fQaNcPb2DO0
 !i103 1
 S1
 R0
