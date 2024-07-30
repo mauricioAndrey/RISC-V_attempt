@@ -37,7 +37,7 @@ INSTRUCTION = {
   "funct3": "",
   "funct7": ""
  },
- "halt": { # gambiarra
+ "auipc": {
   "format": "U",
   "opcode": "0010111",
   "funct3": "",
@@ -252,6 +252,12 @@ INSTRUCTION = {
   "opcode": "0110011",
   "funct3": "111",
   "funct7": "0000000"
+ },
+ "halt": {
+	"format": "H",
+	"opcode": "1111111",
+	"funct3": "",
+	"funct7": "",
  }
 }
 
@@ -369,145 +375,149 @@ def translate_instruction(instruction):
 		funct3 = INSTRUCTION[instr]["funct3"]
 		funct7 = INSTRUCTION[instr]["funct7"]
 
-		if (INSTRUCTION[instr]["format"] not in ["S", "B"]):
-			rd = instruction.split(" ")[1].split(",")[0]
+		if (instr == "halt"):
+			binary = "0"*25
+			binary += opcode
+		else:
+			if (INSTRUCTION[instr]["format"] not in ["S", "B"]):
+				rd = instruction.split(" ")[1].split(",")[0]
 
-			check_register(rd)
+				check_register(rd)
 
-			rd = bin(int(rd[1:]))[2:].zfill(5)
+				rd = bin(int(rd[1:]))[2:].zfill(5)
 
-		if (INSTRUCTION[instr]["format"] == "U"):
-			imm = instruction.split(" ")[1].split(",")[1]
+			if (INSTRUCTION[instr]["format"] == "U"):
+				imm = instruction.split(" ")[1].split(",")[1]
 
-			check_immediate(imm, 20)
+				check_immediate(imm, 20)
 
-			imm = sfill(sbin(imm)[0:20], 20)
+				imm = sfill(sbin(imm)[0:20], 20)
 
-			binary = imm + rd + opcode
+				binary = imm + rd + opcode
 
-		elif (INSTRUCTION[instr]["format"] == "J"):
-			imm = instruction.split(" ")[1].split(",")[1]
+			elif (INSTRUCTION[instr]["format"] == "J"):
+				imm = instruction.split(" ")[1].split(",")[1]
 
-			check_immediate(imm, 20)
+				check_immediate(imm, 20)
 
-			imm = sfill(sbin(imm)[0:20], 21)
-			imm = imm[::-1]
+				imm = sfill(sbin(imm)[0:20], 21)
+				imm = imm[::-1]
 
-			bit20 = imm[20]
-			bit10to1 = (imm[1:11])[::-1]
-			bit11 = imm[11]
-			bit19to12 = (imm[12:20])[::-1]
+				bit20 = imm[20]
+				bit10to1 = (imm[1:11])[::-1]
+				bit11 = imm[11]
+				bit19to12 = (imm[12:20])[::-1]
 
-			imm = sfill((bit20 + bit10to1 + bit11 + bit19to12), 20)
+				imm = sfill((bit20 + bit10to1 + bit11 + bit19to12), 20)
 
-			binary = imm + rd + opcode
+				binary = imm + rd + opcode
 
-		elif (
-		  INSTRUCTION[instr]["format"] == "I"
-		  and instr not in ["lw", "lb", "lh", "lbu", "lhu", "slli", "srli", "srai"]):
-			rs1 = instruction.split(" ")[1].split(",")[1]
+			elif (
+			INSTRUCTION[instr]["format"] == "I"
+			and instr not in ["lw", "lb", "lh", "lbu", "lhu", "slli", "srli", "srai"]):
+				rs1 = instruction.split(" ")[1].split(",")[1]
 
-			check_register(rs1)
+				check_register(rs1)
 
-			rs1 = bin(int(rs1[1:]))[2:].zfill(5)
+				rs1 = bin(int(rs1[1:]))[2:].zfill(5)
 
-			imm = instruction.split(" ")[1].split(",")[2]
+				imm = instruction.split(" ")[1].split(",")[2]
 
-			check_immediate(imm, 12)
+				check_immediate(imm, 12)
 
-			imm = sfill(sbin(imm)[0:12], 12)
+				imm = sfill(sbin(imm)[0:12], 12)
 
-			binary = imm + rs1 + funct3 + rd + opcode
+				binary = imm + rs1 + funct3 + rd + opcode
 
-		elif (INSTRUCTION[instr]["format"] == "B"):
-			rs1 = instruction.split(" ")[1].split(",")[0]
-			rs2 = instruction.split(" ")[1].split(",")[1]
+			elif (INSTRUCTION[instr]["format"] == "B"):
+				rs1 = instruction.split(" ")[1].split(",")[0]
+				rs2 = instruction.split(" ")[1].split(",")[1]
 
-			check_register(rs1)
-			check_register(rs2)
+				check_register(rs1)
+				check_register(rs2)
 
-			rs1 = bin(int(rs1[1:]))[2:].zfill(5)
-			rs2 = bin(int(rs2[1:]))[2:].zfill(5)
+				rs1 = bin(int(rs1[1:]))[2:].zfill(5)
+				rs2 = bin(int(rs2[1:]))[2:].zfill(5)
 
-			imm = instruction.split(" ")[1].split(",")[2]
+				imm = instruction.split(" ")[1].split(",")[2]
 
-			check_immediate(imm, 12)
+				check_immediate(imm, 12)
 
-			imm = sfill(sbin(imm)[0:12], 13)
-			imm = imm[::-1]
+				imm = sfill(sbin(imm)[0:12], 13)
+				imm = imm[::-1]
 
-			bit12 = imm[12]
-			bit10to5 = (imm[5:11])[::-1]
-			bit4to1 = (imm[1:5])[::-1]
-			bit11 = imm[11]
+				bit12 = imm[12]
+				bit10to5 = (imm[5:11])[::-1]
+				bit4to1 = (imm[1:5])[::-1]
+				bit11 = imm[11]
 
-			binary = sfill((bit12 + bit10to5), 7) + rs2 + rs1 + funct3 + sfill(
-			 (bit4to1 + bit11), 5) + opcode
+				binary = sfill((bit12 + bit10to5), 7) + rs2 + rs1 + funct3 + sfill(
+				(bit4to1 + bit11), 5) + opcode
 
-		elif (instr in ["lb", "lh", "lw", "lbu", "lhu"]):
-			rs1 = instruction.split(" ")[1].split(",")[1]
-			rs1 = rs1.split("(")[1].split(")")[0]
+			elif (instr in ["lb", "lh", "lw", "lbu", "lhu"]):
+				rs1 = instruction.split(" ")[1].split(",")[1]
+				rs1 = rs1.split("(")[1].split(")")[0]
 
-			check_register(rs1)
+				check_register(rs1)
 
-			rs1 = bin(int(rs1[1:]))[2:].zfill(5)
+				rs1 = bin(int(rs1[1:]))[2:].zfill(5)
 
-			imm = instruction.split(" ")[1].split(",")[1]
-			imm = imm.split("(")[0]
+				imm = instruction.split(" ")[1].split(",")[1]
+				imm = imm.split("(")[0]
 
-			check_immediate(imm, 12)
+				check_immediate(imm, 12)
 
-			imm = sfill(sbin(imm)[0:12], 12)
+				imm = sfill(sbin(imm)[0:12], 12)
 
-			binary = imm + rs1 + funct3 + rd + opcode
+				binary = imm + rs1 + funct3 + rd + opcode
 
-		elif (INSTRUCTION[instr]["format"] == "S"):
-			rs2 = instruction.split(" ")[1].split(",")[0]
-			rs1 = instruction.split(" ")[1].split(",")[1]
-			rs1 = rs1.split("(")[1].split(")")[0]
+			elif (INSTRUCTION[instr]["format"] == "S"):
+				rs2 = instruction.split(" ")[1].split(",")[0]
+				rs1 = instruction.split(" ")[1].split(",")[1]
+				rs1 = rs1.split("(")[1].split(")")[0]
 
-			check_register(rs1)
-			check_register(rs2)
+				check_register(rs1)
+				check_register(rs2)
 
-			rs2 = bin(int(rs2[1:]))[2:].zfill(5)
-			rs1 = bin(int(rs1[1:]))[2:].zfill(5)
+				rs2 = bin(int(rs2[1:]))[2:].zfill(5)
+				rs1 = bin(int(rs1[1:]))[2:].zfill(5)
 
-			imm = instruction.split(" ")[1].split(",")[1]
-			imm = imm.split("(")[0]
+				imm = instruction.split(" ")[1].split(",")[1]
+				imm = imm.split("(")[0]
 
-			check_immediate(imm, 12)
+				check_immediate(imm, 12)
 
-			imm = sfill(sbin(imm)[0:12], 12)
-			imm = imm[::-1]
+				imm = sfill(sbin(imm)[0:12], 12)
+				imm = imm[::-1]
 
-			bit11to5 = (imm[5:12])[::-1]
-			bit4to0 = (imm[0:5])[::-1]
+				bit11to5 = (imm[5:12])[::-1]
+				bit4to0 = (imm[0:5])[::-1]
 
-			binary = sfill(bit11to5, 7) + rs2 + rs1 + funct3 + sfill(bit4to0, 5) + opcode
+				binary = sfill(bit11to5, 7) + rs2 + rs1 + funct3 + sfill(bit4to0, 5) + opcode
 
-		elif (INSTRUCTION[instr]["format"] == "R"):
-			rs1 = instruction.split(" ")[1].split(",")[1]
-			rs2 = instruction.split(" ")[1].split(",")[2]
+			elif (INSTRUCTION[instr]["format"] == "R"):
+				rs1 = instruction.split(" ")[1].split(",")[1]
+				rs2 = instruction.split(" ")[1].split(",")[2]
 
-			check_register(rs1)
-			check_register(rs2)
+				check_register(rs1)
+				check_register(rs2)
 
-			rs1 = bin(int(rs1[1:]))[2:].zfill(5)
-			rs2 = bin(int(rs2[1:]))[2:].zfill(5)
+				rs1 = bin(int(rs1[1:]))[2:].zfill(5)
+				rs2 = bin(int(rs2[1:]))[2:].zfill(5)
 
-			binary = funct7 + rs2 + rs1 + funct3 + rd + opcode
+				binary = funct7 + rs2 + rs1 + funct3 + rd + opcode
 
-		elif (instr in ["slli", "srli", "srai"]):
-			rs1 = instruction.split(" ")[1].split(",")[1]
+			elif (instr in ["slli", "srli", "srai"]):
+				rs1 = instruction.split(" ")[1].split(",")[1]
 
-			check_register(rs1)
+				check_register(rs1)
 
-			rs1 = bin(int(rs1[1:]))[2:].zfill(5)
+				rs1 = bin(int(rs1[1:]))[2:].zfill(5)
 
-			shamt = instruction.split(" ")[1].split(",")[2]
-			shamt = sfill(sbin(shamt)[0:6], 5)
+				shamt = instruction.split(" ")[1].split(",")[2]
+				shamt = sfill(sbin(shamt)[0:6], 5)
 
-			binary = funct7 + shamt + rs1 + funct3 + rd + opcode
+				binary = funct7 + shamt + rs1 + funct3 + rd + opcode
 
 
 	except Exception as e:
@@ -522,6 +532,7 @@ def main():
 	create_file("verif/instruction.mif")
 
 	for i, instruction in enumerate(instructions):
+		instruction = instruction.strip() # remover os espaços em branco
 		binary = translate_instruction(instruction)
 		if binary:
 			chunks = [

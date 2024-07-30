@@ -33,7 +33,7 @@ module Controller (
   assign LUI = 7'b0110111; // lui
   assign JAL = 7'b1101111; // jal (j-type)
   assign JALR = 7'b1100111; // jalr (i-type)
-  assign HALT = 7'b0010111; // halt (halt-type -> não existe) // (usando o opcode do auipc)
+  assign HALT = 7'b1111111; // halt (h-type -> inventado por nós) //
   
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE_IMM || Opcode == JALR);
   assign MemtoReg = (Opcode == LW);
