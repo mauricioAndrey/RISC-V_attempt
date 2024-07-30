@@ -18,6 +18,7 @@ module Controller (
     output logic [1:0] ALUOp,  //00: LW/SW; 01:Branch; 10: Rtype
     output logic Branch,  //0: branch is not taken; 1: branch is taken
     output logic JalrSel,
+    output logic HaltSel,
     output logic [1:0] RWSel
 );
 
@@ -32,19 +33,19 @@ module Controller (
   assign LUI = 7'b0110111; // lui
   assign JAL = 7'b1101111; // jal (j-type)
   assign JALR = 7'b1100111; // jalr (i-type)
-  assign HALT = 7'b1111111; // halt (halt-type -> não existe)
+  assign HALT = 7'b0010111; // halt (halt-type -> não existe) // (usando o opcode do auipc)
   
-                                                                        // não vai usar a ALU pra a soma (vai usar um adder só)
-  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE_IMM /*|| Opcode == JAL */|| Opcode == JALR);
+  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE_IMM || Opcode == JALR);
   assign MemtoReg = (Opcode == LW);
   assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == I_TYPE_IMM || Opcode == JAL || Opcode == JALR || Opcode == LUI);
   assign MemRead = (Opcode == LW);
   assign MemWrite = (Opcode == SW); 
-  assign ALUOp[0] = (Opcode == BR || Opcode == JAL || Opcode == LUI /* || Opcode == JALR*/);
-  assign ALUOp[1] = (Opcode == R_TYPE || Opcode == I_TYPE_IMM || Opcode == JAL || Opcode == LUI /*|| Opcode == JALR*/);
-  assign Branch = (Opcode == BR || Opcode == JAL /*|| Opcode == JALR*/);
-  /* assign JalrSel = */
-  assign RWSel[0] = (Opcode == JAL); // guarda o valor do PC+4 no reg 
+  assign ALUOp[0] = (Opcode == BR || Opcode == JAL || Opcode == LUI);
+  assign ALUOp[1] = (Opcode == R_TYPE || Opcode == I_TYPE_IMM || Opcode == JAL || Opcode == LUI);
+  assign Branch = (Opcode == BR || Opcode == JAL);
+  assign JalrSel = (Opcode == JALR);
+  assign HaltSel = (Opcode == HALT);
+  assign RWSel[0] = (Opcode == JAL || Opcode == JALR); // guarda o valor do PC+4 no reg 
   assign RWSel[1] = (Opcode == LUI); // dps mudar isso 
 
 endmodule

@@ -18,7 +18,7 @@ module ALUController (
       ((ALUOp == 2'b01) && (Funct3 == 3'b101)) || // BGE
       ((ALUOp == 2'b01) && (Funct3 == 3'b000));  // BEQ
 
-  assign Operation[1] = (ALUOp == 2'b00) ||  // LW\SW
+  assign Operation[1] = (ALUOp == 2'b00) ||  // LW\SW\JALR (somar o endereço com o offset)
       ((ALUOp == 2'b11)) || // JAL/LUI
       ((ALUOp == 2'b01) && (Funct3 == 3'b001)) ||  // BNE
       ((ALUOp == 2'b01) && (Funct3 == 3'b101)) || // BGE

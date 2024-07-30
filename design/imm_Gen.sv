@@ -14,6 +14,9 @@ module imm_Gen (
       7'b0010011: // I-type para instruções aritméticas-lógicas com imediatos
       Imm_out = {inst_code[31] ? 20'hFFFFF : 20'b0, inst_code[31:20]};
       
+      7'b1100111: // I-type JALR
+      Imm_out = {inst_code[31] ? 20'hFFFFF : 20'b0, inst_code[31:20]};
+
       7'b1101111: // J-type
       Imm_out = {
         inst_code[31] ? 11'h7FF : 11'b0,
@@ -42,7 +45,7 @@ module imm_Gen (
         inst_code[31:12],
         12'b0
       };
-      
+
       default: Imm_out = {32'b0};
 
     endcase

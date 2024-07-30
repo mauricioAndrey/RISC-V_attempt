@@ -37,7 +37,7 @@ INSTRUCTION = {
   "funct3": "",
   "funct7": ""
  },
- "auipc": {
+ "halt": { # gambiarra
   "format": "U",
   "opcode": "0010111",
   "funct3": "",
@@ -252,7 +252,7 @@ INSTRUCTION = {
   "opcode": "0110011",
   "funct3": "111",
   "funct7": "0000000"
- },
+ }
 }
 
 
@@ -508,6 +508,7 @@ def translate_instruction(instruction):
 			shamt = sfill(sbin(shamt)[0:6], 5)
 
 			binary = funct7 + shamt + rs1 + funct3 + rd + opcode
+
 
 	except Exception as e:
 		print(f"Error translating instruction '{instruction.rstrip()}': {e}")

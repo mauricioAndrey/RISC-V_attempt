@@ -28,6 +28,7 @@ package Pipe_Buf_Reg_PKG;
     // seletores dos jumps
     logic [1:0] RWSel;
     logic JalrSel;
+    logic HaltSel;
 
   } id_ex_reg;
 
@@ -48,6 +49,8 @@ package Pipe_Buf_Reg_PKG;
     logic [31:0] Curr_Instr;
 
     logic [1:0] RWSel;
+    logic HaltSel;
+
     
   } ex_mem_reg;
 
@@ -64,6 +67,7 @@ package Pipe_Buf_Reg_PKG;
     logic [31:0] Curr_Instr;
 
     logic [1:0] RWSel;
+    logic HaltSel;
 
   } mem_wb_reg;
 endpackage

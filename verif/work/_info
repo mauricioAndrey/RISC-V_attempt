@@ -11,7 +11,7 @@ cModel Technology
 Z0 dD:/Users/mfss2/Desktop/ProjetoIH/RISC-V_attempt/verif
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1722191263
+Z2 !s110 1722345154
 !i10b 1
 !s100 J@Bf42a<9Q9R;nJSZl2>B2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1722191263.000000
+Z8 !s108 1722345154.000000
 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
 Z9 !s90 -reportprogress|300|-f|compile_verilog|
 !i113 1
@@ -67,7 +67,7 @@ Im9OGDZ6FPXU^B5cR8LF0F3
 R4
 S1
 R0
-w1722187767
+w1722279179
 8./../design/ALUController.sv
 F./../design/ALUController.sv
 !i122 0
@@ -86,17 +86,17 @@ vBranchUnit
 R1
 R2
 !i10b 1
-!s100 ;^89cPTRUKV0acceNC9bc0
+!s100 :XhVJR;>ECQFA0meV9Fne3
 R3
-I<lHB7dd4SWdR=oOiM@F?P0
+I7W]h?G4Tl21ggnfR?_H310
 R4
 S1
 R0
-Z12 w1722178465
+w1722344765
 8./../design/BranchUnit.sv
 F./../design/BranchUnit.sv
 !i122 0
-L0 3 29
+L0 3 30
 R7
 r1
 !s85 0
@@ -111,17 +111,17 @@ vController
 R1
 R2
 !i10b 1
-!s100 W6VlceL47J5cf1`fBlWll2
+!s100 ]<X8Z^E5kAIfG3G_zOEn62
 R3
-Ic;:E4E[eWd91Cb_;EN?_C1
+IBO@bF[zNTHb:6IANi^;L23
 R4
 S1
 R0
-w1722187983
+w1722344141
 8./../design/Controller.sv
 F./../design/Controller.sv
 !i122 0
-Z13 L0 3 48
+L0 3 49
 R7
 r1
 !s85 0
@@ -136,13 +136,13 @@ vdatamemory
 R1
 R2
 !i10b 1
-!s100 7>0RGdjS]n8nkmZ;JgL_21
+!s100 l0W7lZYY6PhJW[KTY2X4=2
 R3
-I[iKekDNPDicioF:;F;RdB3
+IP2Fc=_PFT>?;^<<T6BEkU2
 R4
 S1
 R0
-w1721508177
+w1722192644
 8./../design/datamemory.sv
 F./../design/datamemory.sv
 !i122 0
@@ -158,23 +158,23 @@ R9
 R10
 vDatapath
 R1
-Z14 DXx4 work 16 Pipe_Buf_Reg_PKG 0 22 RU;hLjP]d_1D7e`>TGQ<A0
-DXx4 work 16 Datapath_sv_unit 0 22 OhN^9?gP0[=fQaNcPb2DO0
+Z12 DXx4 work 16 Pipe_Buf_Reg_PKG 0 22 5<W]V[gYDHZPkI=P<BQ;o0
+DXx4 work 16 Datapath_sv_unit 0 22 RCOOiVK6lQ4LlIgHP6iDg2
 R2
 R4
 r1
 !s85 0
 !i10b 1
-!s100 b5OdDFl1FAh5AC9k0H7?e2
-IgX1P[JCbS`D1hP8KH?B3g2
+!s100 3M0WeWWQT_`Pn3R@H^7eQ0
+Ik0:`^7L:gmOGAIWL;a9lk0
 !s105 Datapath_sv_unit
 S1
 R0
-Z15 w1722191259
-Z16 8./../design/Datapath.sv
-Z17 F./../design/Datapath.sv
+Z13 w1722345015
+Z14 8./../design/Datapath.sv
+Z15 F./../design/Datapath.sv
 !i122 0
-L0 5 344
+L0 5 352
 R7
 31
 R8
@@ -185,20 +185,20 @@ R10
 n@datapath
 XDatapath_sv_unit
 R1
-R14
+R12
 R2
-VOhN^9?gP0[=fQaNcPb2DO0
+VRCOOiVK6lQ4LlIgHP6iDg2
 r1
 !s85 0
 !i10b 1
-!s100 B6m5]QI3[FXJ^<:F1Ak=;2
-IOhN^9?gP0[=fQaNcPb2DO0
+!s100 1Rn0l?PE28iiIhhLHE;:f2
+IRCOOiVK6lQ4LlIgHP6iDg2
 !i103 1
 S1
 R0
+R13
+R14
 R15
-R16
-R17
 !i122 0
 L0 3 0
 R7
@@ -287,17 +287,17 @@ vimm_Gen
 R1
 R2
 !i10b 1
-!s100 K]EP3F2Mh^GUC5CKElkCQ0
+!s100 i:^@^2:@ORnbiK[zbgWc22
 R3
-I7Cd0nd^`J^T7I@O>I2WH=1
+IBmWkaa?<2^1DIUH<aLR6N1
 R4
 S1
 R0
-w1722188125
+w1722193897
 8./../design/imm_Gen.sv
 F./../design/imm_Gen.sv
 !i122 0
-R13
+L0 3 51
 R7
 r1
 !s85 0
@@ -346,7 +346,7 @@ R5
 8./../design/Memoria32.sv
 F./../design/Memoria32.sv
 !i122 0
-Z18 L0 26 94
+Z16 L0 26 94
 R7
 r1
 !s85 0
@@ -371,7 +371,7 @@ w1721496619
 8./../design/Memoria32Data.sv
 F./../design/Memoria32Data.sv
 !i122 0
-R18
+R16
 R7
 r1
 !s85 0
@@ -434,13 +434,13 @@ XPipe_Buf_Reg_PKG
 R1
 R2
 !i10b 1
-!s100 KRRkMd<j^73nGM`nmP>d51
+!s100 7UTX3=b2Rc5X:aC53jVz13
 R3
-IRU;hLjP]d_1D7e`>TGQ<A0
-VRU;hLjP]d_1D7e`>TGQ<A0
+I5<W]V[gYDHZPkI=P<BQ;o0
+V5<W]V[gYDHZPkI=P<BQ;o0
 S1
 R0
-R12
+w1722344833
 8./../design/RegPack.sv
 F./../design/RegPack.sv
 !i122 0
@@ -467,7 +467,7 @@ R5
 8./../design/ramOnChip32.v
 F./../design/ramOnChip32.v
 !i122 0
-Z19 L0 40 78
+Z17 L0 40 78
 R7
 r1
 !s85 0
@@ -490,7 +490,7 @@ R5
 8./../design/ramOnChipData.v
 F./../design/ramOnChipData.v
 !i122 0
-R19
+R17
 R7
 r1
 !s85 0
@@ -530,17 +530,17 @@ vriscv
 R1
 R2
 !i10b 1
-!s100 1TdV=>Edcl>^l351@@`AO2
+!s100 EUZAY1KTzXTLI>RA;B5_C3
 R3
-I@9Q1nZIlkZUTo6n@z]18K1
+II1M0l8g<2?j7Nmg4lLNFQ0
 R4
 S1
 R0
-R12
+w1722279394
 8./../design/RISC_V.sv
 F./../design/RISC_V.sv
 !i122 0
-L0 3 77
+L0 3 79
 R7
 r1
 !s85 0

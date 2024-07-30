@@ -22,6 +22,7 @@ module Datapath #(
     input  logic [ALU_CC_W -1:0] ALU_CC,         // ALU Control Code ( input of the ALU )
     
     input logic JalrSel, 
+    input logic HaltSel,
     input logic [1:0] RWSel,
     
     output logic [          6:0] opcode,
@@ -160,6 +161,7 @@ module Datapath #(
       // reseta os seletores dos jumps
       B.JalrSel <= 0;
       B.RWSel <= 0;
+      B.HaltSel <= 0;
 
       B.Curr_Instr <= A.Curr_Instr;  //debug tmp
     end else begin
@@ -184,6 +186,7 @@ module Datapath #(
       // output do controle
       B.JalrSel <= JalrSel;
       B.RWSel <= RWSel; 
+      B.HaltSel <= HaltSel;
     end
   end
 
@@ -238,6 +241,7 @@ module Datapath #(
       B.Branch,
       ALUResult,
       JalrSel,
+      B.HaltSel,
       BrImm,
       Old_PC_Four,
       BrPC,
@@ -261,6 +265,7 @@ module Datapath #(
       C.func3 <= 0;
       C.func7 <= 0;
       C.RWSel <= 0;
+      C.HaltSel <= 0;
     end else begin
       C.RegWrite <= B.RegWrite;
       C.MemtoReg <= B.MemtoReg;
@@ -277,6 +282,7 @@ module Datapath #(
       C.Curr_Instr <= B.Curr_Instr;  // debug tmp
       // C.JalrSel <= B.JalrSel;
       C.RWSel <= B.RWSel;
+      C.HaltSel <= B.HaltSel;
     end
   end
 
@@ -310,6 +316,7 @@ module Datapath #(
       D.MemReadData <= 0;
       D.rd <= 0;
       D.RWSel <= 0;
+      D.HaltSel <= 0;
     end else begin
       D.RegWrite <= C.RegWrite;
       D.MemtoReg <= C.MemtoReg;
@@ -321,6 +328,7 @@ module Datapath #(
       D.rd <= C.rd;
       D.Curr_Instr <= C.Curr_Instr;  //Debug Tmp
       D.RWSel <= C.RWSel;
+      D.HaltSel <= C.HaltSel;
     end
   end
 

@@ -20,7 +20,7 @@ module riscv #(
 
   logic [6:0] opcode;
   logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch;
-  logic JalrSel;
+  logic JalrSel, HaltSel;
   logic [1:0] RWSel;
   logic [1:0] ALUop;
   logic [1:0] ALUop_Reg;
@@ -38,6 +38,7 @@ module riscv #(
       ALUop,
       Branch,
       JalrSel,
+      HaltSel,
       RWSel
   );
 
@@ -60,6 +61,7 @@ module riscv #(
       ALUop,
       Operation, //ALU_CC
       JalrSel,
+      HaltSel,
       RWSel,
       opcode,
       Funct7,

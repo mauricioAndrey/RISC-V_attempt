@@ -46,10 +46,10 @@ module datamemory #(
           else rd <= 0;
           rd[15:0] <= Dataout[15:0];
         end
-        3'b010:  //LW
+        3'b010:  // LW
           rd <= Dataout;
         3'b100: // LBU
-          rd <= Dataout[7:0];
+          rd <= {24'b0, Dataout[7:0]};
         default: rd <= Dataout;
       endcase
     end else if (MemWrite) begin
