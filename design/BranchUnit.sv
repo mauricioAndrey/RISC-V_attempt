@@ -16,7 +16,7 @@ module BranchUnit #(
     output logic [31:0] BrPC,
     output logic PcSel
 );
-  logic [31:0] Pc_Halt;
+  //logic [31:0] Pc_Halt;
   logic Branch_Sel;
   logic [31:0] PC_Full;
 
