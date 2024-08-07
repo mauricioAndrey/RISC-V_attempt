@@ -240,7 +240,7 @@ module Datapath #(
       B.ImmG,
       B.Branch,
       ALUResult,
-      JalrSel,
+      B.JalrSel,
       B.HaltSel,
       BrImm,
       Old_PC_Four,
